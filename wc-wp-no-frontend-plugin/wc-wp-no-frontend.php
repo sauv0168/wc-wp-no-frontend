@@ -24,7 +24,8 @@ function wc_redirect_frontend_to_login(){
 
 add_action("parse_request", "wc_redirect_frontend_to_login");
 
-
-
-
-//
+function add_allowed_origins( $origins ) {
+    $origins[] = 'http://body-link.ca';
+    return $origins;
+}
+add_filter( 'allowed_http_origins', 'add_allowed_origins' );
